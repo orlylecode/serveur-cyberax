@@ -1,0 +1,91 @@
+entity Joueur {
+		nom String ,
+        prenom String ,
+        telephone String
+}
+
+entity Mise {
+		montant Double ,
+        dateMise Instant ,
+        dateValidation Instant,
+        etat Integer,
+        positionClic Integer
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Jeu {
+	dateCreation Instant,
+    dateLancement Instant,
+    dateCloture Instant,
+    encour Boolean,
+    pourcentageMise Double,
+    pourcentageRebourt Double
+}
+
+entity Gagnant {
+		nom String ,
+        prenom String ,
+        telephone String,
+        position Integer,
+        dateGain Instant ,
+        datePayment Instant
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity ListAttente {
+		version Integer ,
+        dateCreation Integer
+}
+
+/**
+ * The Employee entity.
+ */
+entity Terminal {
+	/**
+	* The firstname attribute.
+	*/
+    //jeuxEncour Jeu ,
+    //jeuPrecedent Jeu ,
+    //joueur Joueur ,
+    message String 
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	// Employee{job} to Job,
+	
+	//Department{employee} to Employee
+    Joueur{mises} to Mise ,
+    Jeu{mises} to Mise ,
+    ListAttente{mises} to Mise ,
+    Jeu{gagnants} to Gagnant
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+    Terminal{joueur} to Joueur ,
+    Terminal{jeuxEncour} to Jeu ,
+    Terminal{jeuPrecedent} to Jeu ,
+	//Mise{joueur} to Joueur,
+	//Mise{jeu} to Jeu,
+	//Gagnant{jeu} to Jeu,
+	//JobHistory{department} to Department,
+	//JobHistory{employee} to Employee
+}
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate Joueur , ListAttente , Terminal , Gagnant , Mise , Jeu with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Terminal 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

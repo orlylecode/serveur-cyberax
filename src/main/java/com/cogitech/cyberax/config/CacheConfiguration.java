@@ -46,6 +46,16 @@ public class CacheConfiguration {
             createCache(cm, com.cogitech.cyberax.domain.User.class.getName());
             createCache(cm, com.cogitech.cyberax.domain.Authority.class.getName());
             createCache(cm, com.cogitech.cyberax.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.cogitech.cyberax.domain.Joueur.class.getName());
+            createCache(cm, com.cogitech.cyberax.domain.Joueur.class.getName() + ".mises");
+            createCache(cm, com.cogitech.cyberax.domain.Mise.class.getName());
+            createCache(cm, com.cogitech.cyberax.domain.Jeu.class.getName());
+            createCache(cm, com.cogitech.cyberax.domain.Jeu.class.getName() + ".mises");
+            createCache(cm, com.cogitech.cyberax.domain.Jeu.class.getName() + ".gagnants");
+            createCache(cm, com.cogitech.cyberax.domain.Gagnant.class.getName());
+            createCache(cm, com.cogitech.cyberax.domain.ListAttente.class.getName());
+            createCache(cm, com.cogitech.cyberax.domain.ListAttente.class.getName() + ".mises");
+            createCache(cm, com.cogitech.cyberax.domain.Terminal.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

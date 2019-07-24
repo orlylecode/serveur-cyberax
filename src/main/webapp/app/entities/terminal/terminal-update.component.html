@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-terminal-heading">Create or edit a Terminal</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_message" ngbTooltip="The firstname attribute.">Message</label>
+                    <input type="text" class="form-control" name="message" id="field_message"
+                           formControlName="message"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_joueur">Joueur</label>
+                    <select class="form-control" id="field_joueur" name="joueur" formControlName="joueur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="joueurOption.id === editForm.get('joueur').value?.id ? editForm.get('joueur').value : joueurOption" *ngFor="let joueurOption of joueurs; trackBy: trackJoueurById">{{joueurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_jeuxEncour">Jeux Encour</label>
+                    <select class="form-control" id="field_jeuxEncour" name="jeuxEncour" formControlName="jeuxEncour">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="jeuOption.id === editForm.get('jeuxEncour').value?.id ? editForm.get('jeuxEncour').value : jeuOption" *ngFor="let jeuOption of jeuxencours; trackBy: trackJeuById">{{jeuOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_jeuPrecedent">Jeu Precedent</label>
+                    <select class="form-control" id="field_jeuPrecedent" name="jeuPrecedent" formControlName="jeuPrecedent">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="jeuOption.id === editForm.get('jeuPrecedent').value?.id ? editForm.get('jeuPrecedent').value : jeuOption" *ngFor="let jeuOption of jeuprecedents; trackBy: trackJeuById">{{jeuOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

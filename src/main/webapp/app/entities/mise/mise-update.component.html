@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-mise-heading">Create or edit a Mise</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                           formControlName="montant"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateMise">Date Mise</label>
+                    <div class="d-flex">
+                        <input id="field_dateMise" type="datetime-local" class="form-control" name="dateMise" formControlName="dateMise" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateValidation">Date Validation</label>
+                    <div class="d-flex">
+                        <input id="field_dateValidation" type="datetime-local" class="form-control" name="dateValidation" formControlName="dateValidation" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_etat">Etat</label>
+                    <input type="number" class="form-control" name="etat" id="field_etat"
+                           formControlName="etat"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_positionClic">Position Clic</label>
+                    <input type="number" class="form-control" name="positionClic" id="field_positionClic"
+                           formControlName="positionClic"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_joueur">Joueur</label>
+                    <select class="form-control" id="field_joueur" name="joueur" formControlName="joueur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="joueurOption.id === editForm.get('joueur').value?.id ? editForm.get('joueur').value : joueurOption" *ngFor="let joueurOption of joueurs; trackBy: trackJoueurById">{{joueurOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_jeu">Jeu</label>
+                    <select class="form-control" id="field_jeu" name="jeu" formControlName="jeu">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="jeuOption.id === editForm.get('jeu').value?.id ? editForm.get('jeu').value : jeuOption" *ngFor="let jeuOption of jeus; trackBy: trackJeuById">{{jeuOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_listAttente">List Attente</label>
+                    <select class="form-control" id="field_listAttente" name="listAttente" formControlName="listAttente">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="listAttenteOption.id === editForm.get('listAttente').value?.id ? editForm.get('listAttente').value : listAttenteOption" *ngFor="let listAttenteOption of listattentes; trackBy: trackListAttenteById">{{listAttenteOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

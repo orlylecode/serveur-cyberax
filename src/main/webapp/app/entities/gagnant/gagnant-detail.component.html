@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="gagnant">
+            <h2><span>Gagnant</span> {{gagnant.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nom</span></dt>
+                <dd>
+                    <span>{{gagnant.nom}}</span>
+                </dd>
+                <dt><span>Prenom</span></dt>
+                <dd>
+                    <span>{{gagnant.prenom}}</span>
+                </dd>
+                <dt><span>Telephone</span></dt>
+                <dd>
+                    <span>{{gagnant.telephone}}</span>
+                </dd>
+                <dt><span>Position</span></dt>
+                <dd>
+                    <span>{{gagnant.position}}</span>
+                </dd>
+                <dt><span>Date Gain</span></dt>
+                <dd>
+                    <span>{{gagnant.dateGain}}</span>
+                </dd>
+                <dt><span>Date Payment</span></dt>
+                <dd>
+                    <span>{{gagnant.datePayment}}</span>
+                </dd>
+                <dt><span>Jeu</span></dt>
+                <dd>
+                    <div *ngIf="gagnant.jeu">
+                        <a [routerLink]="['/jeu', gagnant.jeu?.id, 'view']">{{gagnant.jeu?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/gagnant', gagnant.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

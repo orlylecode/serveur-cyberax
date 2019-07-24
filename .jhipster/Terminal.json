@@ -1,0 +1,46 @@
+{
+    "name": "Terminal",
+    "fields": [
+        {
+            "fieldName": "message",
+            "javadoc": "The firstname attribute.",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "joueur",
+            "otherEntityRelationshipName": "terminal",
+            "relationshipName": "joueur",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "jeu",
+            "otherEntityRelationshipName": "terminal",
+            "relationshipName": "jeuxEncour",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "jeu",
+            "otherEntityRelationshipName": "terminal",
+            "relationshipName": "jeuPrecedent",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190724150552",
+    "javadoc": "The Employee entity.",
+    "entityTableName": "terminal",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

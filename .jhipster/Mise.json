@@ -1,0 +1,54 @@
+{
+    "name": "Mise",
+    "fields": [
+        {
+            "fieldName": "montant",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "dateMise",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateValidation",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "positionClic",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "joueur",
+            "otherEntityName": "joueur",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "jeu",
+            "otherEntityName": "jeu",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "listAttente",
+            "otherEntityName": "listAttente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190724150548",
+    "entityTableName": "mise",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
