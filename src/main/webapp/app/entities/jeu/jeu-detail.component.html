@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="jeu">
+            <h2><span>Jeu</span> {{jeu.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date Creation</span></dt>
+                <dd>
+                    <span>{{jeu.dateCreation}}</span>
+                </dd>
+                <dt><span>Date Lancement</span></dt>
+                <dd>
+                    <span>{{jeu.dateLancement}}</span>
+                </dd>
+                <dt><span>Date Cloture</span></dt>
+                <dd>
+                    <span>{{jeu.dateCloture}}</span>
+                </dd>
+                <dt><span>Encour</span></dt>
+                <dd>
+                    <span>{{jeu.encour}}</span>
+                </dd>
+                <dt><span>Pourcentage Mise</span></dt>
+                <dd>
+                    <span>{{jeu.pourcentageMise}}</span>
+                </dd>
+                <dt><span>Pourcentage Rebourt</span></dt>
+                <dd>
+                    <span>{{jeu.pourcentageRebourt}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/jeu', jeu.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{
+    "name": "Jeu",
+    "fields": [
+        {
+            "fieldName": "dateCreation",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateLancement",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateCloture",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "encour",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "pourcentageMise",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "pourcentageRebourt",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mise",
+            "otherEntityRelationshipName": "jeu",
+            "relationshipName": "mises"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "gagnant",
+            "otherEntityRelationshipName": "jeu",
+            "relationshipName": "gagnants"
+        }
+    ],
+    "changelogDate": "20190724150549",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "jeu",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

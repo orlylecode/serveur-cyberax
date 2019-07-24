@@ -1,0 +1,31 @@
+{
+    "name": "ListAttente",
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateCreation",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mise",
+            "otherEntityRelationshipName": "listAttente",
+            "relationshipName": "mises"
+        }
+    ],
+    "changelogDate": "20190724150551",
+    "javadoc": "Task entity.\n@author The JHipster team.",
+    "entityTableName": "list_attente",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

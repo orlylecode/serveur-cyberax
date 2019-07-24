@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mise">
+            <h2><span>Mise</span> {{mise.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Montant</span></dt>
+                <dd>
+                    <span>{{mise.montant}}</span>
+                </dd>
+                <dt><span>Date Mise</span></dt>
+                <dd>
+                    <span>{{mise.dateMise}}</span>
+                </dd>
+                <dt><span>Date Validation</span></dt>
+                <dd>
+                    <span>{{mise.dateValidation}}</span>
+                </dd>
+                <dt><span>Etat</span></dt>
+                <dd>
+                    <span>{{mise.etat}}</span>
+                </dd>
+                <dt><span>Position Clic</span></dt>
+                <dd>
+                    <span>{{mise.positionClic}}</span>
+                </dd>
+                <dt><span>Joueur</span></dt>
+                <dd>
+                    <div *ngIf="mise.joueur">
+                        <a [routerLink]="['/joueur', mise.joueur?.id, 'view']">{{mise.joueur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Jeu</span></dt>
+                <dd>
+                    <div *ngIf="mise.jeu">
+                        <a [routerLink]="['/jeu', mise.jeu?.id, 'view']">{{mise.jeu?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>List Attente</span></dt>
+                <dd>
+                    <div *ngIf="mise.listAttente">
+                        <a [routerLink]="['/list-attente', mise.listAttente?.id, 'view']">{{mise.listAttente?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mise', mise.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
